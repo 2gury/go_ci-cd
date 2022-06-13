@@ -1,5 +1,5 @@
 build-image:
-	docker build --file=Dockerfile --tag=test-hello:latest .
+	docker build --file=Dockerfile --tag=gurygury/test-hello:latest .
 
 start-container:
-	docker run --env-file .env -p 8080:8080 test-hello:latest
+	docker run --env-file .env -p 8080:8080 gurygury/test-hello:latest
