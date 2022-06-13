@@ -22,7 +22,7 @@ jobs:
         DOCKER_LOGIN: ${{secrets.DOCKER_LOGIN}}
         DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_TOKEN 
+        docker login -u $DOCKER_LOGIN -p $DOCKER_TOKEN 
     - name: Build the Docker image
       run: docker build --file=Dockerfile --tag=gurygury/test-hello:latest .
       
