@@ -13,6 +13,7 @@ func main() {
 		w.Write([]byte("Hi"))
 	}).Methods(http.MethodGet)
 
+	
 	log.Println("Start server at :8080 port")
 	http.ListenAndServe(":8080", mx)
 }
