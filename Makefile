@@ -3,3 +3,6 @@ build-image:
 
 start-container:
 	docker run --env-file .env --name=test-hello -p 8080:8080 gurygury/test-hello:latest
+
+test:
+	go test ./... -coverprofile cover.out.tmp
