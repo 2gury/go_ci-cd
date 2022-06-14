@@ -6,3 +6,6 @@ start-container:
 
 test:
 	go test ./... -coverprofile cover.out.tmp
+
+lint:
+	golangci-lint run --config=.golangci.yml
