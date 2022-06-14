@@ -45,7 +45,9 @@ jobs:
         with:
           version: v1.44.2
           args: --config=.golangci-lint.yml
-        run: ll
+      
+      - name: Run tests
+        run: make test
 
   # build:
   #   runs-on: ubuntu-latest
