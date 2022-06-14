@@ -7,7 +7,7 @@ on:
 
 env:
   IMAGE_NAME: "gurygury/test-hello"
-  CONTAINER_NAME: "pocket"
+  CONTAINER_NAME: "test-hello"
   VERSION: "latest"
 
 jobs:

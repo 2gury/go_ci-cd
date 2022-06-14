@@ -1,0 +1,5 @@
+mode: set
+go_ci-cd/cmd/main.go:10.30,12.2 1 1
+go_ci-cd/cmd/main.go:14.13,16.66 2 0
+go_ci-cd/cmd/main.go:20.2,21.34 2 0
+go_ci-cd/cmd/main.go:16.66,18.3 1 0
