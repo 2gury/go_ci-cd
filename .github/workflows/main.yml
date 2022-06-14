@@ -11,23 +11,23 @@ env:
   VERSION: "latest"
 
 jobs:
-  # build:
+  build:
 
-  #   runs-on: ubuntu-latest
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: docker login
-  #     env:
-  #       DOCKER_LOGIN: ${{secrets.DOCKER_LOGIN}}
-  #       DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
-  #     run: |
-  #       docker login -u $DOCKER_LOGIN -p $DOCKER_TOKEN 
-  #   - name: Build the Docker image
-  #     run: make build-image
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_LOGIN: ${{secrets.DOCKER_LOGIN}}
+        DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
+      run: |
+        docker login -u $DOCKER_LOGIN -p $DOCKER_TOKEN 
+    - name: Build the Docker image
+      run: make build-image
       
-  #   - name: Docker Push
-  #     run: docker push gurygury/test-hello:latest
+    - name: Docker Push
+      run: docker push gurygury/test-hello:latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -43,7 +43,6 @@ jobs:
           passphrase: ${{ secrets.PASS_PHRASE }}
           envs: IMAGE_NAME,CONTAINER_NAME,VERSION
           script: |
-            sudo bash
             # Login into Digital Ocean Registry
             docker login -u $DOCKER_LOGIN -p $DOCKER_TOKEN 
             # Stop running container
@@ -53,6 +52,6 @@ jobs:
             # Run a new container from a new image
             docker run -d \
             --restart always \
-            --publish 80:80 \
+            --publish 8080:8080 \
             --name $(echo $CONTAINER_NAME) \
             $(echo $IMAGE_NAME):$(echo $VERSION)
