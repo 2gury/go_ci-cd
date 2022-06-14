@@ -43,6 +43,7 @@ jobs:
           passphrase: ${{ secrets.PASS_PHRASE }}
           envs: IMAGE_NAME,CONTAINER_NAME,VERSION
           script: |
+            sudo bash
             # Login into Digital Ocean Registry
             docker login -u $DOCKER_LOGIN -p $DOCKER_TOKEN 
             # Stop running container
